@@ -2,6 +2,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: white; /* Initial background color */
     transition: background-color 1s;
     border: 5px solid maroon;
 }
@@ -121,7 +122,7 @@ footer p {
     }
 
     nav {
-        position: relativer; /* Ensure menu can slide out from the top on smaller screens */
+        position: relative; /* Ensure menu can slide out from the top on smaller screens */
     }
 
     nav ul {
