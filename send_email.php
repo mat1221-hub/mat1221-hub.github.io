@@ -1,31 +1,22 @@
 <?php
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Retrieve form data
     $name = htmlspecialchars($_POST['name']);
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
 
-    // Your email address
-    $to = 'ayinetmulat2017@gmail.com';
+    $to = "ayinetmulat2017@gmail.com";
+    $subject = "New Contact Form Message";
+    $body = "Name: $name\nEmail: $email\n\nMessage:\n$message";
 
-    // Email subject
-    $subject = 'New Contact Form Submission';
+    // Additional headers
+    $headers = "From: $email\r\n";
 
-    // Email content
-    $email_content = "Name: $name\n";
-    $email_content .= "Email: $email\n";
-    $email_content .= "Message:\n$message\n";
-
-    // Email headers
-    $headers = "From: $email";
-
-    // Send email
-    if (mail($to, $subject, $email_content, $headers)) {
-        echo "Thank you for your message! We will get back to you soon.";
+    if (mail($to, $subject, $body, $headers)) {
+        echo "Message sent successfully!";
     } else {
-        echo "Oops! Something went wrong, and we couldn't send your message.";
+        echo "Failed to send message.";
     }
 } else {
-    echo "There was a problem with your submission, please try again.";
+    echo "Invalid request method.";
 }
 ?>
